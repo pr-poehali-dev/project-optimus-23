@@ -1,28 +1,32 @@
-import { Check } from "lucide-react";
+import Icon from "@/components/ui/icon";
 
 const plans = [
   {
-    name: "Личный",
-    price: "Бесплатно",
-    description: "Для тех, кто начинает путь осознанной продуктивности",
-    features: ["Неспешное управление задачами", "Ежедневная сессия фокуса", "Еженедельные размышления", "Доступ в приложении"],
-    cta: "Начать бесплатно",
+    name: "Один брусок",
+    price: "от 350 ₽",
+    description: "Попробуйте любое мыло из каталога",
+    features: [
+      "Мыло на выбор: Медовое, Лавандовое или Ромашка",
+      "Вес 100±5 г",
+      "Подарок при первом заказе",
+      "Состав на этикетке",
+    ],
+    cta: "Выбрать мыло",
     highlighted: false,
   },
   {
-    name: "Профи",
-    price: "990 ₽",
-    period: "/мес",
-    description: "Для тех, кто готов углубить практику",
+    name: "Набор на выбор",
+    price: "от 950 ₽",
+    description: "Соберите свой набор из 3 брусков — идеально как подарок",
     features: [
-      "Всё из тарифа Личный",
-      "Безлимитные сессии фокуса",
-      "Расписание часов тишины",
-      "Мягкая аналитика",
-      "Синхронизация с календарём",
-      "Приоритетная поддержка",
+      "3 мыла на ваш выбор",
+      "Красивая упаковка в подарок",
+      "Подходит для корпоративных заказов",
+      "Персональная открытка",
+      "Доставка по Москве и России",
+      "Подарок при первом заказе",
     ],
-    cta: "Начать путь",
+    cta: "Собрать набор",
     highlighted: true,
   },
 ];
@@ -32,11 +36,11 @@ export function Pricing() {
     <section id="pricing" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
-          <span className="text-sm uppercase tracking-widest text-amber mb-4 block">Тарифы</span>
+          <span className="text-sm uppercase tracking-widest text-amber mb-4 block">Наборы</span>
           <h2 className="font-serif text-4xl md:text-5xl tracking-tight text-foreground mb-4 text-balance">
-            Простые и честные цены
+            Выберите свой формат
           </h2>
-          <p className="text-muted-foreground text-lg">Без скрытых платежей. Отмена в любой момент.</p>
+          <p className="text-muted-foreground text-lg">Корпоративные заказы от 10 наборов — напишите нам.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -52,11 +56,6 @@ export function Pricing() {
               </h3>
               <div className="flex items-baseline gap-1 mb-4">
                 <span className="font-serif text-5xl tracking-tight">{plan.price}</span>
-                {plan.period && (
-                  <span className={plan.highlighted ? "text-primary-foreground/70" : "text-muted-foreground"}>
-                    {plan.period}
-                  </span>
-                )}
               </div>
               <p className={`mb-8 ${plan.highlighted ? "text-primary-foreground/80" : "text-muted-foreground"}`}>
                 {plan.description}
@@ -65,7 +64,7 @@ export function Pricing() {
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center gap-3">
-                    <Check size={18} className="text-sage" />
+                    <Icon name="Check" size={18} className="text-sage" />
                     <span className={plan.highlighted ? "text-primary-foreground/90" : "text-foreground"}>
                       {feature}
                     </span>
